@@ -39,6 +39,10 @@ def main():
             if CircleShape.check_for_collisions(asteroid, player) == True:
                 print("Game over!")
                 sys.exit()
+            for shot in shots:
+                if CircleShape.check_for_collisions(asteroid, shot) == True:
+                    pygame.sprite.Sprite.kill(asteroid)
+                    pygame.sprite.Sprite.kill(shot)
         for sprite in drawable:
             sprite.draw(screen)
         pygame.display.flip()
